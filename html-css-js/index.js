@@ -162,4 +162,28 @@ const Person = class {
     "Yebasra ",
     "ababu",
 )
+const val = 0
+const val2 =1
+const fibVal =0
+for (let val = 0; i >= val2; i++){
+	fibVa = val + val2
+    val = val2
+    val2 = fibval
+    console.log(fibVal)
+};
 
+function fib(){
+    for (let i = 0; i >= val2; i++){
+        fibVa = val + val2
+        val = val2
+        val2 = fibval
+        console.log(fibVal)
+    };
+}
+function recuesion(curr,next,index){
+    if (index >=10 ){
+        return;
+    }
+    console.log(curr)
+    
+}
