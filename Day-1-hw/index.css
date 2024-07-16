@@ -1,0 +1,48 @@
+
+.allGrids{
+    line-height: 70px;
+    height:700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.grid{
+    display:grid;
+    grid-template-columns: 33%,33%,33%;
+    width: 100%;
+}
+.text{
+    margin:auto;
+    text-align: center;
+}
+.box1{
+    background-color: blue ;
+    color: #7373f4;   
+    border: 5px rgb(80,80,80 ) solid;
+ 
+}
+.box2{
+    background-color: rgb(255, 0, 0) ;
+    color:rgb(30, 23, 23);
+    border: 5px rgb(80,80,80 ) solid;
+
+    
+}
+.box3{
+    background-color: rgb(242, 255, 0) ;
+    color:rgb(13, 13, 13);
+    border: 5px rgb(80,80,80 ) solid;
+}
+.box4{
+    background-color: rgb(9, 255, 0) ;
+    color:rgb(13, 13, 13);
+    border: 5px rgb(80,80,80 ) solid;
+    
+}
+.box5{
+    background-color: rgb(255, 0, 204) ;
+    color:rgb(13, 13, 13);
+    border: 5px rgb(80,80,80 ) solid;
+    grid-column: 2/4;
+}
