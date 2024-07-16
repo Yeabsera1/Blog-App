@@ -1,8 +1,4 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.min.js";
-import "bootstrap/dist/js/bootstrap.bundle.min";
-import "bootstrap-icons/font/bootstrap-icons.css";
 
 import BlogGrid from "../../components/BlogGrid";
 import CategoriesList from "../../components/CategoriesList";
@@ -22,12 +18,7 @@ export default function HomePage() {
       <div className="container">
         <Heading />
         <Subheading subHeading={"Recent blogs"} />
-        <BlogGrid
-          blogs={blogs}
-          setBlog={(blogID) => {
-            console.log("Selected Blog Clicked:", blogID);
-          }}
-        />
+        <BlogGrid blogs={blogs} />
         <Subheading subHeading={"Categories"} />
         <CategoriesList categories={categories} />
         <Footer />

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-
 import { Link, useParams, useNavigate } from "react-router-dom";
 
-import Navbar from "../../components/Navbar";
 import Categories from "../../components/Categories";
+import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 import "./index.css";
@@ -12,16 +11,13 @@ const data = require("../../dummy-data.json");
 const blogsData = data.blogPosts.reverse();
 
 export default function BlogPage() {
-  const navigate = useNavigate();
   const { blogId } = useParams();
-
-  const [blog, setBlog] = useState(null);
+  const navigate = useNavigate();
+  const [blog, setBlog] = useState();
 
   useEffect(() => {
-    const blogRes = blogsData.filter((blog) => blog.id == blogId);
-    if (blogRes.length) {
-      setBlog(blogRes[0]);
-    }
+    const blogRes = blogsData.find((blog) => blog.id === parseInt(blogId));
+    setBlog(blogRes);
   }, [blogId]);
 
   const navigateToAuthorProfile = () => {
@@ -77,5 +73,3 @@ export default function BlogPage() {
     </>
   );
 }
-
-

@@ -10,8 +10,11 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 import "./App.css";
 
-import HomePage from "../src/Pages//HomePage";
-import BlogsPage from "./Pages/Blogs";
+import HomePage from "./Pages/Home";
+import BlogsPage from "./Pages/Blog";
+import CategoriesPage from "./Pages/Categories";
+import BlogPage from "./Pages/Blog";
+import ProfilePage from "./Pages/Profile";
 
 const routes = [
   {
@@ -22,22 +25,22 @@ const routes = [
     path: "/home",
     element: <HomePage />,
   },
-  // {
-  //   path: "/categories",
-  //   element: <CategoriesPage />,
-  // },
+  {
+    path: "/Categories",
+    element: <CategoriesPage />,
+  },
   {
     path: "/blogs/:categoryId?",
     element: <BlogsPage />,
   },
-  // {
-  //   path: "/blog/:blogId",
-  //   element: <BlogPage />,
-  // },
-  // {
-  //   path: "/profile",
-  //   element: <ProfilePage />,
-  // },
+  {
+    path: "/blog/:blogId",
+    element: <BlogPage />,
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage />,
+  },
 ];
 
 const router = createBrowserRouter(routes);

@@ -1,24 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import "./index.css";
+import Navbar from "../../components/Navbar";
+import Heading from "../../components/Heading";
+import Subheading from "../../components/SubHeading";
+import CategoriesList from "../../components/CategoriesList";
+import Footer from "../../components/Footer";
 
-export default function Categories({ blog }) {
+import categoryService from "../../Services/categoryService";
+
+export default function CategoriesPage() {
+  const [categories, setCategories] = useState();
+
+  useEffect(() => {
+    const fetchPageData = async () => {
+      try {
+        const categories = await categoryService.getCategories();
+        setCategories(categories.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchPageData();
+  }, []);
+
+  if (!categories) {
+    return null;
+  }
+
   return (
-    <div className="flex-wrap">
-      {blog.categories.map((category, index) => {
-        return (
-          <p
-            key={index}
-            className="category-tag"
-            style={{
-              color: category.color,
-              backgroundColor: category.color + "33",
-            }}
-          >
-            {category.title}
-          </p>
-        );
-      })}
-    </div>
+    <>
+      <Navbar />
+      <div className="container">
+        <Heading />
+        <Subheading subHeading={"Categories"} />
+        <CategoriesList categories={categories} />
+        <Footer />
+      </div>
+    </>
   );
 }
