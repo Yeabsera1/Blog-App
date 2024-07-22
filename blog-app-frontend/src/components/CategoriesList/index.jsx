@@ -1,8 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import "./index.css";
 
 export default function CategoriesList({ categories }) {
+  const navigate = useNavigate();
+  const navigateToBlog = (categoryId) => {
+    navigate("/blogs/" + categoryId);
+  };
+  if (!categories) {
+    return null;
+  }
   return (
     <div className="category-list">
       {categories.map((category) => {
@@ -12,7 +21,7 @@ export default function CategoriesList({ categories }) {
             className="card"
             style={{ borderRadius: "0px", border: "none", padding: "0px" }}
             onClick={() => {
-              console.log("TODO: Navigate to categories page");
+              navigateToBlog(category.id);
             }}
           >
             <div
@@ -37,3 +46,7 @@ export default function CategoriesList({ categories }) {
     </div>
   );
 }
+
+CategoriesList.prototype = {
+  categories: PropTypes.array.isRequired,
+};

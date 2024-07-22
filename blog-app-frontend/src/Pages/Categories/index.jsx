@@ -5,28 +5,32 @@ import Heading from "../../components/Heading";
 import Subheading from "../../components/SubHeading";
 import CategoriesList from "../../components/CategoriesList";
 import Footer from "../../components/Footer";
+import Loader from "../../components/Loader";
 
-import categoryService from "../../Services/categoryService";
+import categoryService from "../../services/categoryService";
 
 export default function CategoriesPage() {
+  const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState();
 
   useEffect(() => {
     const fetchPageData = async () => {
       try {
+        setLoading(true);
         const categories = await categoryService.getCategories();
         setCategories(categories.data);
+        setLoading(false);
       } catch (err) {
         console.log(err);
+        setLoading(false);
       }
     };
     fetchPageData();
   }, []);
-  console.log(categories)
 
-  // if (!categories) {
-  //   return null;
-  // }
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -34,10 +38,7 @@ export default function CategoriesPage() {
       <div className="container">
         <Heading />
         <Subheading subHeading={"Categories"} />
-        {categories ?
         <CategoriesList categories={categories} />
-: <div>No categories to display.</div>
-        }
         <Footer />
       </div>
     </>

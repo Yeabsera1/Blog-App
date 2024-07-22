@@ -31,7 +31,7 @@ const routes = [
     element: <CategoriesPage />,
   },
   {
-    path: "/blogs",
+    path: "/blogs/:categoryId?",
     element: <BlogsPage />,
   },
   {
@@ -39,7 +39,7 @@ const routes = [
     element: <BlogPage />,
   },
   {
-    path: "/profile",
+    path: "/profile/:authorId",
     element: <ProfilePage />,
   },
 ];
