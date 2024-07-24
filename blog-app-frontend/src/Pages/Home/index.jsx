@@ -10,7 +10,7 @@ import SuccessToast from "../../components/SuccessToast";
 import ErrorToast from "../../components/ErrorToast";
 import Loader from "../../components/Loader";
 
-import blogsService from "../../services/blogsService";
+import blogsService from "../../services/blogService";
 import categoryService from "../../services/categoryService";
 
 export default function HomePage() {
